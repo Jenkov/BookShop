@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="manageCategories" extends="default">
+        <default-interceptor-ref name="chkSession"/>
+
+        <action name="showManageCategories" method="view" class="admin.manageCategoriesAction">
+            <result>/admin/manageCategories.jsp</result>
+        </action>
+
+        <action name="iterateManageCategoriesPage" method="getPage" class="admin.manageCategoriesAction">
+            <result>/admin/manageCategories.jsp</result>
+        </action>
+
+        <action name="doInsertCategory" method="insertupdate" class="admin.manageCategoriesAction">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="token"/>
+            <result name="success" type="redirect-action">doViewCategories</result>
+            <result name="input">admin/manageCategories.jsp</result>
+        </action>
+
+        <action name="doViewCategories" method="view" class="admin.manageCategoriesAction">
+            <result name="success">admin/manageCategories.jsp</result>
+            <result name="error" type="redirect-action">showManageCategories</result>
+        </action>
+
+        <action name="doDeleteCategory" method="delete" class="admin.manageCategoriesAction">
+            <result name="success" type="redirect-action">doViewCategories</result>
+            <result name="error">admin/manageCategories.jsp</result>
+        </action>
+
+        <action name="showEditCategory" method="edit" class="admin.manageCategoriesAction">
+            <result name="success">admin/manageCategories.jsp</result>
+        </action>
+    </package>
+</struts>

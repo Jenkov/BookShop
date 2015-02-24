@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC '-//OpenSymphony Group//XWork Validator 1.0.2//EN' 'http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd'>
+<validators>
+	<field name="category.Category">
+		<field-validator type="requiredstring">
+			<message>Please enter the category name.</message>
+		</field-validator>
+	</field>
+
+    <field name="category.Description">
+		<field-validator type="requiredstring">
+			<message>Please enter the category description.</message>
+		</field-validator>
+	</field>
+</validators>

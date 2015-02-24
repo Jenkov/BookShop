@@ -1,0 +1,50 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="default" extends="struts-default">
+        <interceptors>
+            <interceptor name="loginInterceptor" class="common.AuthenticationInterceptor" />
+            <interceptor-stack name="chkSession">
+                <interceptor-ref name="defaultStack" />
+                <interceptor-ref name="loginInterceptor" />
+            </interceptor-stack>
+        </interceptors>
+
+        <global-results>
+            <result name="invalid.token">common/doublePost.jsp</result>
+            <result name="loginAction" type="redirect">/sessionnotfound.jsp</result>
+        </global-results>
+
+        <action name="showHomePage" method="view" class="frontend.homeAction">
+            <result>/frontend/home.jsp</result>
+        </action>
+
+        <action name="getFile" class="common.getFileAction">
+            <result name="success" type = "stream">
+                <param name="contentType">image/jpeg</param>
+                <param name="inputName">iStream</param>
+                <param name="contentDisposition">filename="file.jpg"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+    </package>
+
+    <include file="struts-adminLogin.xml" />
+    <include file="struts-manageCountries.xml" />
+    <include file="struts-manageCitiesStates.xml" />
+    <include file="struts-manageAuthors.xml" />
+    <include file="struts-managePublishers.xml" />
+    <include file="struts-manageCategories.xml" />
+    <include file="struts-manageUsers.xml" />
+    <include file="struts-manageBooks.xml" />
+    <include file="struts-manageCustomers.xml" />
+    <include file="struts-manageTransactions.xml" />
+
+    <include file="struts-frontendLogin.xml" />
+    <include file="struts-homePage.xml" />
+    <include file="struts-registration.xml" />
+    <include file="struts-search.xml" />
+    <include file="struts-cart.xml" />
+</struts>

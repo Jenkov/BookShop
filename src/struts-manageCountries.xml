@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="manageCountries" extends="default">
+        <default-interceptor-ref name="chkSession"/>
+
+        <action name="showManageCountries" method="view" class="admin.manageCountriesAction">
+            <result>/admin/manageCountries.jsp</result>
+        </action>
+
+        <action name="iterateManageCountriesPage" method="getPage" class="admin.manageCountriesAction">
+            <result>/admin/manageCountries.jsp</result>
+        </action>
+
+        <action name="doInsertCountry" method="insertupdate" class="admin.manageCountriesAction">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="token"/>
+            <result name="success" type="redirect-action">doViewCountries</result>
+            <result name="input">admin/manageCountries.jsp</result>
+        </action>
+
+        <action name="doViewCountries" method="view" class="admin.manageCountriesAction">
+            <result name="success">admin/manageCountries.jsp</result>
+            <result name="error" type="redirect-action">showManageCountries</result>
+        </action>
+
+        <action name="doDeleteCountry" method="delete" class="admin.manageCountriesAction">
+            <result name="success" type="redirect-action">doViewCountries</result>
+            <result name="error">admin/manageCountries.jsp</result>
+        </action>
+
+        <action name="showEditCountry" method="edit" class="admin.manageCountriesAction">
+            <result name="success">admin/manageCountries.jsp</result>
+        </action>
+    </package>
+</struts>

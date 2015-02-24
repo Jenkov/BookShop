@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="beans.Countries" table="countries">
+    <id name="CountryNo" type="integer">
+      <column name="CountryNo"/>
+      <generator class="increment"/>
+    </id>
+    <property name="Country" type="string">
+      <column length="50" name="Country" not-null="true" unique="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="manageCitiesStates" extends="default">
+        <default-interceptor-ref name="chkSession"/>
+
+        <action name="showManageCitiesStates" method="view" class="admin.manageCitiesStatesAction">
+            <result>/admin/manageCityState.jsp</result>
+        </action>
+
+        <action name="iterateManageCitiesStatesPage" method="getPage" class="admin.manageCitiesStatesAction">
+            <result>/admin/manageCityState.jsp</result>
+        </action>
+
+        <action name="doInsertCityState" method="insertupdate" class="admin.manageCitiesStatesAction">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="token"/>
+            <result name="success" type="redirect-action">doViewCitiesStates</result>
+            <result name="input">admin/manageCityState.jsp</result>
+        </action>
+
+        <action name="doViewCitiesStates" method="view" class="admin.manageCitiesStatesAction">
+            <result name="success">admin/manageCityState.jsp</result>
+            <result name="error" type="redirect-action">showManageCitiesStates</result>
+        </action>
+
+        <action name="doDeleteCityState" method="delete" class="admin.manageCitiesStatesAction">
+            <result name="success" type="redirect-action">doViewCitiesStates</result>
+            <result name="error">admin/manageCityState.jsp</result>
+        </action>
+
+        <action name="showEditCityState" method="edit" class="admin.manageCitiesStatesAction">
+            <result name="success">admin/manageCityState.jsp</result>
+        </action>
+    </package>
+</struts>

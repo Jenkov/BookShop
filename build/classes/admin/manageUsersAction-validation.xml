@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC '-//OpenSymphony Group//XWork Validator 1.0.2//EN' 'http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd'>
+<validators>
+	<field name="systemuser.FirstName">
+		<field-validator type="requiredstring">
+			<message>Please enter the first name.</message>
+		</field-validator>
+	</field>
+
+    <field name="systemuser.LastName">
+		<field-validator type="requiredstring">
+			<message>Please enter the last name.</message>
+		</field-validator>
+	</field>
+
+    <field name="systemuser.EmailAddress">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>Please enter the email address.</message>
+		</field-validator>
+		<field-validator type="email" short-circuit="true">
+			<message>Invalid email address.</message>
+		</field-validator>
+	</field>
+
+    <field name="systemuser.Username">
+		<field-validator type="requiredstring">
+			<message>Please enter the username.</message>
+		</field-validator>
+	</field>
+
+    <field name="systemuser.Password">
+		<field-validator type="requiredstring">
+			<message>Please enter the password.</message>
+		</field-validator>
+	</field>
+</validators>

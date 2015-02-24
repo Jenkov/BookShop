@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="beans.Customers" table="customers">
+    <id name="CustomerNo" type="integer">
+      <column name="CustomerNo"/>
+      <generator class="increment"/>
+    </id>
+    <property name="Username" type="string">
+      <column length="30" name="Username" not-null="true" unique="true"/>
+    </property>
+    <property name="Password" type="string">
+      <column length="30" name="Password" not-null="true"/>
+    </property>
+    <property name="EmailAddress" type="string">
+      <column length="50" name="EmailAddress" not-null="true" unique="true"/>
+    </property>
+    <property name="FirstName" type="string">
+      <column length="30" name="FirstName" not-null="true"/>
+    </property>
+    <property name="LastName" type="string">
+      <column length="30" name="LastName" not-null="true"/>
+    </property>
+    <property name="Address1" type="string">
+      <column length="50" name="Address1"/>
+    </property>
+    <property name="Address2" type="string">
+      <column length="50" name="Address2"/>
+    </property>
+    <property name="CityStateNo" type="integer">
+      <column name="CityStateNo"/>
+    </property>
+    <property name="Pincode" type="string">
+      <column length="20" name="Pincode"/>
+    </property>
+    <property name="CountryNo" type="integer">
+      <column name="CountryNo"/>
+    </property>
+    <property name="Dob" type="string">
+      <column length="15" name="DOB"/>
+    </property>
+    <property name="NewRelease" type="string">
+      <column length="30" name="NewRelease"/>
+    </property>
+    <property name="BookUpdates" type="string">
+      <column length="30" name="BookUpdates"/>
+    </property>
+    <property name="LastLogin" type="string">
+      <column length="50" name="LastLogin"/>
+    </property>
+    <property name="LastIP" type="string">
+      <column length="25" name="LastIP"/>
+    </property>
+  </class>
+</hibernate-mapping>

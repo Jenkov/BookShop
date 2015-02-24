@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="manageCustomers" extends="default">
+        <default-interceptor-ref name="chkSession"/>
+
+        <action name="showManageCustomers" method="view" class="admin.manageCustomersAction">
+            <result>/admin/manageCustomers.jsp</result>
+        </action>
+
+        <action name="iterateManageCustomersPage" method="getPage" class="admin.manageCustomersAction">
+            <result>/admin/manageCustomers.jsp</result>
+        </action>
+
+        <action name="doUpdateCustomer" method="update" class="admin.manageCustomersAction">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="token"/>
+            <result name="success" type="redirect-action">doViewCustomers</result>
+            <result name="input">admin/manageCustomers.jsp</result>
+            <result name="error">admin/manageCustomers.jsp</result>
+        </action>
+
+        <action name="doViewCustomers" method="view" class="admin.manageCustomersAction">
+            <result name="success">admin/manageCustomers.jsp</result>
+            <result name="error" type="redirect-action">showManageCustomers</result>
+        </action>
+
+        <action name="doDeleteCustomer" method="delete" class="admin.manageCustomersAction">
+            <result name="success" type="redirect-action">doViewCustomers</result>
+        </action>
+
+        <action name="showEditCustomer" method="edit" class="admin.manageCustomersAction">
+            <result name="success">admin/manageCustomers.jsp</result>
+        </action>
+    </package>
+</struts>

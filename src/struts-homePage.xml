@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="homePage" extends="default">
+        <action name="showBooksForThisCategory" method="viewBooksForThisCategory" class="frontend.homeAction">
+            <result>/frontend/home.jsp</result>
+        </action>
+
+        <action name="showAuthorDetails" method="viewAuthorBooks" class="frontend.showAuthorDetailsAction">
+            <result name="success">frontend/showAuthorDetails.jsp</result>
+        </action>
+
+        <action name="showPublisherDetails" method="viewPublisherBooks" class="frontend.showPublisherDetailsAction">
+            <result name="success">frontend/showPublisherDetails.jsp</result>
+        </action>
+
+        <action name="showAllBooksForCat" method="viewCategoryBooks" class="frontend.showAllBooksForCatAction">
+            <result name="success">frontend/showAllBooksForCat.jsp</result>
+        </action>
+
+        <action name="showBookDetails" method="viewBooks" class="frontend.showBookDetailsAction">
+            <result name="success">frontend/showBookDetails.jsp</result>
+        </action>
+    </package>
+</struts>

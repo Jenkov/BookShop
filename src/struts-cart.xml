@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="cart" extends="default">
+        <action name="showCart" method="show" class="frontend.cartAction">
+            <result>/frontend/showCart.jsp</result>
+        </action>
+
+        <action name="addToCart" method="addBook" class="frontend.cartAction">
+            <result type="redirect">
+                <param name="location">
+                    ${#context.get(@org.apache.struts2.StrutsStatics@HTTP_REQUEST).getHeader("Referer")}
+                </param>
+            </result>
+        </action>
+
+        <action name="removeFromCart" method="removeBook" class="frontend.cartAction">
+            <result type="redirect-action">showCart</result>
+        </action>
+
+        <action name="performTransaction" method="addTransactions" class="frontend.performTransactionAction">
+            <result>/frontend/performTransaction.jsp</result>
+        </action>
+    </package>
+</struts>

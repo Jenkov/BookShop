@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC '-//OpenSymphony Group//XWork Validator 1.0.2//EN' 'http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd'>
+<validators>
+	<field name="book.BookName">
+		<field-validator type="requiredstring">
+			<message>Please enter the book name.</message>
+		</field-validator>
+	</field>
+
+	<field name="book.PublisherNo">
+		<field-validator type="required">
+			<message>Please select the publisher name.</message>
+		</field-validator>
+	</field>
+
+	<field name="book.CategoryNo">
+		<field-validator type="required">
+			<message>Please select the category name.</message>
+		</field-validator>
+	</field>
+
+	<field name="book.ISBN">
+		<field-validator type="requiredstring">
+			<message>Please enter the book ISBN.</message>
+		</field-validator>
+	</field>
+
+	<field name="book.Edition">
+		<field-validator type="requiredstring">
+			<message>Please enter the edition of the book.</message>
+		</field-validator>
+	</field>
+
+	<field name="book.Year">
+        <field-validator type="required" short-circuit="true">
+			<message>Please enter the year when the book was published.</message>
+		</field-validator>
+        <field-validator type="int" short-circuit="true">
+			<message>Enter a numeric value</message>
+		</field-validator>
+	</field>
+
+	<field name="book.Cost">
+        <field-validator type="required" short-circuit="true">
+			<message>Please enter the cost of the book.</message>
+		</field-validator>
+        <field-validator type="int" short-circuit="true">
+			<message>Enter a numeric value</message>
+		</field-validator>
+	</field>
+
+    <field name="book.Author1No">
+		<field-validator type="required">
+			<message>Please select the name of the first author.</message>
+		</field-validator>
+	</field>
+
+	<field name="book.Synopsis">
+		<field-validator type="requiredstring">
+			<message>Please enter the synopsis of the book.</message>
+		</field-validator>
+	</field>
+
+	<field name="book.AboutAuthors">
+		<field-validator type="requiredstring">
+			<message>Please enter the about the author details.</message>
+		</field-validator>
+	</field>
+</validators>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="manageUsers" extends="default">
+        <default-interceptor-ref name="chkSession"/>
+
+        <action name="showManageUsers" method="view" class="admin.manageUsersAction">
+            <result>/admin/manageUsers.jsp</result>
+        </action>
+
+        <action name="iterateManageUsersPage" method="getPage" class="admin.manageUsersAction">
+            <result>/admin/manageUsers.jsp</result>
+        </action>
+
+        <action name="doInsertUser" method="insertupdate" class="admin.manageUsersAction">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="token"/>
+            <result name="success" type="redirect-action">doViewUsers</result>
+            <result name="input">admin/manageUsers.jsp</result>
+            <result name="error">admin/manageUsers.jsp</result>
+        </action>
+
+        <action name="doViewUsers" method="view" class="admin.manageUsersAction">
+            <result name="success">admin/manageUsers.jsp</result>
+            <result name="error" type="redirect-action">showManageUsers</result>
+        </action>
+
+        <action name="doDeleteUser" method="delete" class="admin.manageUsersAction">
+            <result name="success" type="redirect-action">doViewUsers</result>
+        </action>
+
+        <action name="showEditUser" method="edit" class="admin.manageUsersAction">
+            <result name="success">admin/manageUsers.jsp</result>
+        </action>
+    </package>
+</struts>

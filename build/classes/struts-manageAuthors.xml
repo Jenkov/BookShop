@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="manageAuthors" extends="default">
+        <default-interceptor-ref name="chkSession"/>
+
+        <action name="showManageAuthors" method="view" class="admin.manageAuthorsAction">
+            <result>/admin/manageAuthors.jsp</result>
+        </action>
+
+        <action name="iterateManageAuthorsPage" method="getPage" class="admin.manageAuthorsAction">
+            <result>/admin/manageAuthors.jsp</result>
+        </action>
+
+        <action name="doInsertAuthor" method="insertupdate" class="admin.manageAuthorsAction">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="token"/>
+            <result name="success" type="redirect-action">doViewAuthors</result>
+            <result name="input"> admin/manageAuthors.jsp</result>
+        </action>
+
+        <action name="doViewAuthors" method="view" class="admin.manageAuthorsAction">
+            <result name="success">admin/manageAuthors.jsp</result>
+            <result name="error" type="redirect-action">showManageAuthors</result>
+        </action>
+
+        <action name="doDeleteAuthor" method="delete" class="admin.manageAuthorsAction">
+            <result name="success" type="redirect-action">doViewAuthors</result>
+            <result name="error">admin/manageAuthors.jsp</result>
+        </action>
+
+        <action name="showEditAuthor" method="edit" class="admin.manageAuthorsAction">
+            <result name="success">admin/manageAuthors.jsp</result>
+        </action>
+    </package>
+</struts>

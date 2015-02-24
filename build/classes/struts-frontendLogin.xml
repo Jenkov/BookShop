@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="frontendLogin" extends="default">
+        <action name="doCustomerLogin" method="login" class="frontend.customerLoginAction">
+            <result name="success" type="redirect-action">showHomePage</result>
+            <result name="error">/frontend/home.jsp</result>
+            <result name="input">/frontend/home.jsp</result>
+        </action>
+
+        <action name="doRetrievePassword" method="retrievePassword" class="frontend.customerLoginAction">
+            <result name="success" type="redirect-action">showHomePage</result>
+            <result name="error">/frontend/forgotPassword.jsp</result>
+        </action>
+
+        <action name="doCustomerLogout" method="logoff" class="frontend.customerLoginAction">
+            <result name="success" type="redirect-action">showHomePage</result>
+        </action>
+
+        <action name="showForgotPassword">
+            <result>frontend/forgotPassword.jsp</result>
+        </action>
+    </package>
+</struts>

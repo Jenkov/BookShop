@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="search" extends="default">
+        <action name="showSearchResults">
+            <result>frontend/searchResults.jsp</result>
+        </action>
+
+        <action name="showBooksSearchResults" method="viewBooksSearchResults" class="frontend.SearchResultsAction">
+            <result name="success">frontend/searchResults.jsp</result>
+        </action>
+
+        <action name="showAuthorsSearchResults" method="viewAuthorsSearchResults" class="frontend.SearchResultsAction">
+            <result name="success">frontend/searchResults.jsp</result>
+        </action>
+
+        <action name="showBooksOfThisAuthor" method="viewBooksOfThisAuthor" class="frontend.SearchResultsAction">
+            <result name="success">frontend/searchResults.jsp</result>
+        </action>
+
+        <action name="showPublishersSearchResults" method="viewPublishersSearchResults" class="frontend.SearchResultsAction">
+            <result name="success">frontend/searchResults.jsp</result>
+        </action>
+
+        <action name="showBooksOfThisPublisher" method="viewBooksOfThisPublisher" class="frontend.SearchResultsAction">
+            <result name="success">frontend/searchResults.jsp</result>
+        </action>
+
+        <action name="performSearch" method="performPopularSearch" class="frontend.SearchResultsAction">
+            <result name="success">frontend/searchResults.jsp</result>
+        </action>
+    </package>
+</struts>

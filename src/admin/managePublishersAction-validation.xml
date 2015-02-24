@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC '-//OpenSymphony Group//XWork Validator 1.0.2//EN' 'http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd'>
+<validators>
+	<field name="publisher.PublisherName">
+		<field-validator type="requiredstring">
+			<message>Please enter the publisher name.</message>
+		</field-validator>
+	</field>
+
+    <field name="publisher.EmailAddress">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>Please enter the email address.</message>
+		</field-validator>
+		<field-validator type="email" short-circuit="true">
+			<message>Invalid email address.</message>
+		</field-validator>
+	</field>
+</validators>

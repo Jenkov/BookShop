@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="beans.SystemUsers" table="systemusers">
+    <id name="UserNo" type="integer">
+      <column name="UserNo"/>
+      <generator class="increment"/>
+    </id>
+    <property name="Username" type="string">
+      <column length="30" name="Username" not-null="true" unique="true"/>
+    </property>
+    <property name="Password" type="string">
+      <column length="30" name="Password" not-null="true"/>
+    </property>
+    <property name="EmailAddress" type="string">
+      <column length="50" name="EmailAddress" not-null="true" unique="true"/>
+    </property>
+    <property name="FirstName" type="string">
+      <column length="30" name="FirstName" not-null="true"/>
+    </property>
+    <property name="LastName" type="string">
+      <column length="30" name="LastName" not-null="true"/>
+    </property>
+    <property name="ManageCountries" type="string">
+      <column length="10" name="ManageCountries"/>
+    </property>
+    <property name="ManageCityState" type="string">
+      <column length="10" name="ManageCityState"/>
+    </property>
+    <property name="ManageAuthors" type="string">
+      <column length="10" name="ManageAuthors"/>
+    </property>
+    <property name="ManagePublishers" type="string">
+      <column length="10" name="ManagePublishers"/>
+    </property>
+    <property name="ManageCategories" type="string">
+      <column length="10" name="ManageCategories"/>
+    </property>
+    <property name="ManageUsers" type="string">
+      <column length="10" name="ManageUsers"/>
+    </property>
+    <property name="ManageBooks" type="string">
+      <column length="10" name="ManageBooks"/>
+    </property>
+    <property name="ManageCustomers" type="string">
+      <column length="10" name="ManageCustomers"/>
+    </property>
+    <property name="ManageTransactions" type="string">
+      <column length="10" name="ManageTransactions"/>
+    </property>
+    <property name="LastLogin" type="string">
+      <column length="25" name="LastLogin"/>
+    </property>
+  </class>
+</hibernate-mapping>

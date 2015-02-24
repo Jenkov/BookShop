@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="managePublishers" extends="default">
+        <default-interceptor-ref name="chkSession"/>
+
+        <action name="showManagePublishers" method="view" class="admin.managePublishersAction">
+            <result>/admin/managePublishers.jsp</result>
+        </action>
+
+        <action name="iterateManagePublishersPage" method="getPage" class="admin.managePublishersAction">
+            <result>/admin/managePublishers.jsp</result>
+        </action>
+
+        <action name="doInsertPublisher" method="insertupdate" class="admin.managePublishersAction">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="token"/>
+            <result name="success" type="redirect-action">doViewPublishers</result>
+            <result name="input">admin/managePublishers.jsp</result>
+        </action>
+
+        <action name="doViewPublishers" method="view" class="admin.managePublishersAction">
+            <result name="success">admin/managePublishers.jsp</result>
+            <result name="error" type="redirect-action">showManagePublishers</result>
+        </action>
+
+        <action name="doDeletePublisher" method="delete" class="admin.managePublishersAction">
+            <result name="success" type="redirect-action">doViewPublishers</result>
+            <result name="error">admin/managePublishers.jsp</result>
+        </action>
+
+        <action name="showEditPublisher" method="edit" class="admin.managePublishersAction">
+            <result name="success">admin/managePublishers.jsp</result>
+        </action>
+    </package>
+</struts>

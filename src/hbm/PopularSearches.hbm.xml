@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="beans.PopularSearches" table="popularsearches">
+    <id name="SearchNo" type="java.lang.Integer">
+      <column name="SearchNo"/>
+      <generator class="increment"/>
+    </id>
+    <property name="Criteria" type="string">
+      <column length="10" name="Criteria"/>
+    </property>
+    <property name="Value" type="string">
+      <column length="100" name="Value"/>
+    </property>
+  </class>
+</hibernate-mapping>

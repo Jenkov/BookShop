@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+<!-- For Oracle - Schema bms, User bms
+    <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+    <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+    <property name="hibernate.connection.username"></property>
+    <property name="hibernate.connection.password"></property>
+    <property name="hibernate.default_schema">bms</property>
+-->
+<!-- For MySQL - Catalog bms, User root -->
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bms</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.default_catalog">bms</property>
+    <mapping resource="hbm/Countries.hbm.xml"/>
+    <mapping resource="hbm/CityState.hbm.xml"/>
+    <mapping resource="hbm/Authors.hbm.xml"/>
+    <mapping resource="hbm/Categories.hbm.xml"/>
+    <mapping resource="hbm/Publishers.hbm.xml"/>
+    <mapping resource="hbm/SystemUsers.hbm.xml"/>
+    <mapping resource="hbm/Customers.hbm.xml"/>
+    <mapping resource="hbm/Books.hbm.xml"/>
+    <mapping resource="hbm/Transactions.hbm.xml"/>
+    <mapping resource="hbm/PopularSearches.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

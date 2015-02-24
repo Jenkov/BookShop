@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="beans.Transactions" table="transactions">
+    <id name="TransactionDetailNo" type="java.lang.Integer">
+      <column name="TransactionDetailNo"/>
+      <generator class="increment"/>
+    </id>
+    <property name="TransactionNo" type="int">
+      <column name="TransactionNo" not-null="true"/>
+    </property>
+    <property name="TransactionDate" type="date">
+      <column length="10" name="TransactionDate" not-null="true"/>
+    </property>
+    <property name="Username" type="string">
+      <column length="25" name="Username" not-null="true"/>
+    </property>
+    <property name="BookName" type="string">
+      <column name="BookName" not-null="true"/>
+    </property>
+    <property name="Cost" type="int">
+      <column name="Cost" not-null="true"/>
+    </property>
+    <property name="Qty" type="int">
+      <column name="Qty" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

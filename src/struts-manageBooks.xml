@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="manageBooks" extends="default">
+        <default-interceptor-ref name="chkSession"/>
+
+        <action name="showManageBooks" method="view" class="admin.manageBooksAction">
+            <result>/admin/manageBooks.jsp</result>
+        </action>
+
+        <action name="iterateManageBooksPage" method="getPage" class="admin.manageBooksAction">
+            <result>/admin/manageBooks.jsp</result>
+        </action>
+
+        <action name="doInsertBook" method="insertupdate" class="admin.manageBooksAction">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="token"/>
+            <result name="success" type="redirect-action">doViewBooks</result>
+            <result name="input">admin/manageBooks.jsp</result>
+        </action>
+
+        <action name="doViewBooks" method="view" class="admin.manageBooksAction">
+            <result name="success">admin/manageBooks.jsp</result>
+            <result name="error" type="redirect-action">showManageBooks</result>
+        </action>
+
+        <action name="doDeleteBook" method="delete" class="admin.manageBooksAction">
+            <result name="success" type="redirect-action">doViewBooks</result>
+        </action>
+
+        <action name="showEditBook" method="edit" class="admin.manageBooksAction">
+            <result name="success">admin/manageBooks.jsp</result>
+        </action>
+    </package>
+</struts>

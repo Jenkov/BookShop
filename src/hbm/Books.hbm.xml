@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="beans.Books" table="books">
+    <id name="BookNo" type="integer">
+      <column name="BookNo"/>
+      <generator class="increment"/>
+    </id>
+    <property name="BookName" type="string">
+      <column name="BookName" not-null="true"/>
+    </property>
+    <property name="Author1No" type="integer">
+      <column name="Author1No" not-null="true"/>
+    </property>
+    <property name="Author2No" type="integer">
+      <column name="Author2No"/>
+    </property>
+    <property name="Author3No" type="integer">
+      <column name="Author3No"/>
+    </property>
+    <property name="Author4No" type="integer">
+      <column name="Author4No"/>
+    </property>
+    <property name="PublisherNo" type="integer">
+      <column name="PublisherNo" not-null="true"/>
+    </property>
+    <property name="CategoryNo" type="integer">
+      <column name="CategoryNo" not-null="true"/>
+    </property>
+    <property name="CoverPage" type="blob">
+      <column name="CoverPage"/>
+    </property>
+    <property name="ISBN" type="string">
+      <column length="20" name="ISBN" not-null="true" unique="true"/>
+    </property>
+    <property name="Edition" type="string">
+      <column length="20" name="Edition" not-null="true"/>
+    </property>
+    <property name="Year" type="integer">
+      <column name="Year" not-null="true"/>
+    </property>
+    <property name="Cost" type="integer">
+      <column name="Cost" not-null="true"/>
+    </property>
+    <property name="Synopsis" type="string">
+      <column length="4000" name="Synopsis" not-null="true"/>
+    </property>
+    <property name="AboutAuthors" type="string">
+      <column length="4000" name="AboutAuthors" not-null="true"/>
+    </property>
+    <property name="TopicsCovered" type="string">
+      <column length="4000" name="TopicsCovered"/>
+    </property>
+    <property name="ContentsCDROM" type="string">
+      <column length="4000" name="ContentsCDROM"/>
+    </property>
+    <property name="Toc" type="blob">
+      <column name="Toc"/>
+    </property>
+    <property name="SampleChapter" type="blob">
+      <column name="SampleChapter"/>
+    </property>
+    <property name="Hits" type="integer">
+      <column name="Hits"/>
+    </property>
+  </class>
+</hibernate-mapping>
